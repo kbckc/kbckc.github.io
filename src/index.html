@@ -15,7 +15,11 @@
         extend: {
           colors: {
             'pco-topaz': '#42A5F5',
+            'pco-turquoise': '#137C72',
             'pco-emerald': '#68BB6A',
+          },
+          backgroundImage: {
+            'pco-secondary-btn': 'linear-gradient(white, white), linear-gradient(to right, var(--tw-gradient-stops))',
           },
         },
       },
@@ -29,9 +33,15 @@
         <img class="m-auto" src="https://kbckcstorage.blob.core.windows.net/photos/kbc-logo-black-on-transparent.png" alt="Koinonia Bible Church" width="264">
       </h1>
       <nav class="md:flex-1 md:border-l md:ps-12 mx-4 md:mx-0 text-center text-lg flex flex-col gap-4">
-        <a class="text-white font-semibold rounded-3xl py-1 bg-gradient-to-r from-pco-topaz to-pco-emerald" href="https://kbckc.churchcenter.com/">Home</a>
-        <a class="text-white font-semibold rounded-3xl py-1 bg-gradient-to-r from-pco-topaz to-pco-emerald" href="https://kbckc.churchcenter.com/calendar">Calendar</a>
-        <a class="text-white font-semibold rounded-3xl py-1 bg-gradient-to-r from-pco-topaz to-pco-emerald" href="https://kbckc.churchcenter.com/login">Log In</a>
+        <a class="text-white hover:text-pco-turquoise font-semibold rounded-3xl py-1 bg-gradient-to-r hover:bg-pco-secondary-btn bg-clip-padding hover:[background-clip:padding-box,border-box] border-2 border-transparent from-pco-topaz to-pco-emerald" href="https://kbckc.churchcenter.com/">
+          Home
+        </a>
+        <a class="text-white hover:text-pco-turquoise font-semibold rounded-3xl py-1 bg-gradient-to-r hover:bg-pco-secondary-btn bg-clip-padding hover:[background-clip:padding-box,border-box] border-2 border-transparent from-pco-topaz to-pco-emerald" href="https://kbckc.churchcenter.com/calendar">
+          Calendar
+        </a>
+        <a class="text-white hover:text-pco-turquoise font-semibold rounded-3xl py-1 bg-gradient-to-r hover:bg-pco-secondary-btn bg-clip-padding hover:[background-clip:padding-box,border-box] border-2 border-transparent from-pco-topaz to-pco-emerald" href="https://kbckc.churchcenter.com/login">
+          Log In
+        </a>
       </nav>
   </main>
   <footer>
