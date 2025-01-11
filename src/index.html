@@ -53,6 +53,24 @@
       });
     }
   </script>
+  <script type="text/javascript" defer>
+    let cursor = 0;
+    let timeout;
+    const KONAMI_CODE = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65, 13];
+    document.addEventListener('keydown', e => {
+      clearTimeout(timeout);
+      cursor = (e.keyCode == KONAMI_CODE[cursor]) ? cursor + 1 : 0;
+      if (cursor == KONAMI_CODE.length) {
+        document.getElementById('skylight-link').style.display = 'block';
+        cursor = 0;
+      }
+      if (cursor > 0) {
+        timeout = setTimeout(() => {
+          cursor = 0;
+        }, 5_000);
+      }
+    });
+  </script>
 </head>
 
 <body class="min-h-dvh flex flex-col gap-10 justify-center p-4">
@@ -69,6 +87,9 @@
         </a>
         <a class="text-white hover:text-pco-turquoise font-semibold rounded-3xl py-1 bg-gradient-to-r hover:bg-pco-secondary-btn bg-clip-padding hover:[background-clip:padding-box,border-box] border-2 border-transparent from-pco-topaz to-pco-emerald" href="https://kbckc.churchcenter.com/login">
           Log In
+        </a>
+        <a id="skylight-link" style="display: none" class="font-semibold rounded-3xl py-1 border-2" href="https://kbckc-skylight.azurewebsites.net">
+          Skylight
         </a>
       </nav>
   </main>
