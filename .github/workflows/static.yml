@@ -25,7 +25,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
       - name: Replace Environment Variables
         run: |
           APPI_CONN_STR=${{ vars.APPI_CONN_STR }}
