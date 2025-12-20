@@ -10,7 +10,7 @@ const clickPluginConfig: IClickAnalyticsConfiguration = {
 };
 
 const CONNECTION_STRING = 'APPI_CONN_STR_HERE';
-if (CONNECTION_STRING?.startsWith('APPI')) {
+if (CONNECTION_STRING.startsWith('APPI')) {
   console.warn('Please provide a valid Application Insights Instrumentation Key');
 } else {
   const appInsights = new ApplicationInsights({
@@ -27,7 +27,6 @@ if (CONNECTION_STRING?.startsWith('APPI')) {
   appInsights.loadAppInsights();
   appInsights.trackPageView();
 }
-
 
 const KONAMI_CODE = [
   'ArrowUp',
