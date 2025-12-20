@@ -1,6 +1,12 @@
 {
-    "cSpell.words": [
-        "Koinonia",
-        "tailwindcss"
-    ]
+  "cSpell.words": [
+    "Koinonia",
+    "tailwindcss"
+  ],
+  "files.associations": {
+    "*.css": "tailwindcss"
+  },
+  "editor.quickSuggestions": {
+    "strings": "on"
+  }
 }

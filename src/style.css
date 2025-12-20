@@ -1,0 +1,13 @@
+@import "tailwindcss";
+
+@theme {
+  --color-pco-topaz: #42A5F5;
+  --color-pco-turquoise: #137C72;
+  --color-pco-emerald: #68BB6A;
+}
+
+@utility bg-pco-secondary-btn {
+  background-image:
+    linear-gradient(white, white),
+    linear-gradient(to right, var(--tw-gradient-stops));
+}
