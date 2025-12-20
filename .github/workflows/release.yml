@@ -25,7 +25,7 @@ jobs:
 
       - name: Replace Environment Variables
         run: |
-          APPI_CONN_STR=${{ vars.APPI_CONN_STR }}
+          APPI_CONN_STR="${{ vars.APPI_CONN_STR }}"
           sed -i -e "s|APPI_CONN_STR_HERE|$APPI_CONN_STR|g" src/main.ts
 
       - name: Setup Node.js
