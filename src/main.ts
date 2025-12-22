@@ -59,3 +59,30 @@ document.addEventListener('keydown', e => {
     }, 5_000);
   }
 });
+
+function isAppleDevice() {
+  // eslint-disable-next-line @typescript-eslint/no-deprecated
+  const platform = navigator.platform;
+  return (
+    platform.startsWith('Mac')
+    || platform === 'iPhone'
+    || platform === 'iPad'
+    || platform === 'iPod'
+  );
+}
+
+// Apple devices have a maps app installed by default,
+// so replace Google Maps links with Apple Maps links.
+if (isAppleDevice()) {
+  const addressElements = document.getElementsByTagName('address');
+  for (const addressElement of addressElements) {
+    const linkElements = addressElement.getElementsByTagName('a');
+    for (const linkElement of linkElements) {
+      const href = linkElement.getAttribute('href');
+      if (href?.includes('https://maps.google.com')) {
+        const newHref = href.replace('https://maps.google.com', 'maps://maps.apple.com');
+        linkElement.setAttribute('href', newHref);
+      }
+    }
+  }
+}
