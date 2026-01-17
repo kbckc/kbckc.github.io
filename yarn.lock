@@ -1696,7 +1696,7 @@ __metadata:
     tslib: "npm:^2.8.1"
     typescript: "npm:~5.9.3"
     typescript-eslint: "npm:^8.53.0"
-    vite: "npm:rolldown-vite@7.3.0"
+    vite: "npm:rolldown-vite@7.3.1"
   languageName: unknown
   linkType: soft
 
@@ -2543,9 +2543,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vite@npm:rolldown-vite@7.3.0":
-  version: 7.3.0
-  resolution: "rolldown-vite@npm:7.3.0"
+"vite@npm:rolldown-vite@7.3.1":
+  version: 7.3.1
+  resolution: "rolldown-vite@npm:7.3.1"
   dependencies:
     "@oxc-project/runtime": "npm:0.101.0"
     fdir: "npm:^6.5.0"
@@ -2595,7 +2595,7 @@ __metadata:
       optional: true
   bin:
     vite: bin/vite.js
-  checksum: 10c0/7098ba9be029e6530baf6a08e786859910e502e14f18a6fdda856b149fe676ff81d5cb069b8b42f3e88e791fff17f77f9f067c26159fb85a7aab4e4b8692bbb2
+  checksum: 10c0/01b6af00aabbdfbb59a069e5b932336769b1a8effd0fbea0e6ea78b0c3b97ff5be721f3d16b3cd5928444e22566e5850e12eee53b5d9101e98e52828e6e53e00
   languageName: node
   linkType: hard
 
