@@ -1,5 +1,6 @@
 import { ClickAnalyticsPlugin, type IClickAnalyticsConfiguration } from '@microsoft/applicationinsights-clickanalytics-js';
 import { ApplicationInsights } from '@microsoft/applicationinsights-web';
+import Bowser from 'bowser';
 
 const clickPluginInstance = new ClickAnalyticsPlugin();
 const clickPluginConfig: IClickAnalyticsConfiguration = {
@@ -61,14 +62,9 @@ document.addEventListener('keydown', e => {
 });
 
 function isAppleDevice() {
-  // eslint-disable-next-line @typescript-eslint/no-deprecated
-  const platform = navigator.platform;
-  return (
-    platform.startsWith('Mac')
-    || platform === 'iPhone'
-    || platform === 'iPad'
-    || platform === 'iPod'
-  );
+  const parser = Bowser.getParser(window.navigator.userAgent);
+  const osName = parser.getOSName(true);
+  return osName === 'ios' || osName === 'macos';
 }
 
 // Apple devices have a maps app installed by default,

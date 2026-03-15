@@ -1015,6 +1015,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"bowser@npm:^2.14.1":
+  version: 2.14.1
+  resolution: "bowser@npm:2.14.1"
+  checksum: 10c0/bb69b55ba7f0456e3dc07d0cfd9467f985581f640ba8fd426b08754a6737ee0d6cf3b50607941e5255f04c83075b952ece0599f978dd4d20f1e95461104c5ffd
+  languageName: node
+  linkType: hard
+
 "brace-expansion@npm:^5.0.2":
   version: 5.0.4
   resolution: "brace-expansion@npm:5.0.4"
@@ -1619,6 +1626,7 @@ __metadata:
     "@microsoft/applicationinsights-web": "npm:^3.3.11"
     "@stylistic/eslint-plugin": "npm:^5.10.0"
     "@tailwindcss/vite": "npm:^4.2.1"
+    bowser: "npm:^2.14.1"
     eslint: "npm:^10.0.3"
     eslint-config-flat-gitignore: "npm:^2.2.1"
     eslint-plugin-better-tailwindcss: "npm:^4.3.2"
