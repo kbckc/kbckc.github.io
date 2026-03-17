@@ -1,15 +1,20 @@
 // @ts-check
-import { defineConfig } from 'eslint/config';
-import gitignore from 'eslint-config-flat-gitignore';
-import tseslint from 'typescript-eslint';
-import tailwindcss from 'eslint-plugin-better-tailwindcss';
 import js from '@eslint/js';
-import stylistic from '@stylistic/eslint-plugin';
 import eslintParserHTML from '@html-eslint/parser';
+import stylistic from '@stylistic/eslint-plugin';
+import gitignore from 'eslint-config-flat-gitignore';
+import tailwindcss from 'eslint-plugin-better-tailwindcss';
+import packageJson from 'eslint-plugin-package-json';
+import perfectionist from 'eslint-plugin-perfectionist';
+import regexp from 'eslint-plugin-regexp';
+import unicorn from 'eslint-plugin-unicorn';
+import { defineConfig } from 'eslint/config';
+import tseslint from 'typescript-eslint';
 
 export default defineConfig(gitignore(), {
   extends: [
     js.configs.recommended,
+    unicorn.configs.recommended,
     stylistic.configs['disable-legacy'],
     stylistic.configs.customize({
       quotes: 'single',
@@ -18,12 +23,26 @@ export default defineConfig(gitignore(), {
       braceStyle: '1tbs',
       commaDangle: 'always-multiline',
     }),
+    regexp.configs.recommended,
   ],
+  plugins: {
+    perfectionist,
+  },
   rules: {
     '@stylistic/arrow-parens': 'off',
     '@stylistic/indent': 'off',
     '@stylistic/indent-binary-ops': 'off',
     '@stylistic/multiline-ternary': 'off',
+
+    'perfectionist/sort-imports': [
+      'warn',
+      {
+        newlinesBetween: 0,
+      },
+    ],
+    'perfectionist/sort-named-imports': 'warn',
+
+    'unicorn/prefer-query-selector': 'off',
   },
 }, {
   files: [
@@ -57,4 +76,9 @@ export default defineConfig(gitignore(), {
 
     'better-tailwindcss/enforce-consistent-line-wrapping': 'off',
   },
+}, {
+  files: ['**/package.json'],
+  extends: [
+    packageJson.configs.recommended,
+  ],
 });

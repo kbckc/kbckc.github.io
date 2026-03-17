@@ -44,9 +44,9 @@ const KONAMI_CODE = [
 ];
 let cursor = 0;
 let timeout: ReturnType<typeof setTimeout>;
-document.addEventListener('keydown', e => {
+document.addEventListener('keydown', event => {
   clearTimeout(timeout);
-  if (e.key == KONAMI_CODE[cursor])
+  if (event.key == KONAMI_CODE[cursor])
     cursor++;
   if (cursor == KONAMI_CODE.length) {
     const skylightLinkElement = document.getElementById('skylight-link');
@@ -57,12 +57,12 @@ document.addEventListener('keydown', e => {
   if (cursor > 0) {
     timeout = setTimeout(() => {
       cursor = 0;
-    }, 5_000);
+    }, 5000);
   }
 });
 
 function isAppleDevice() {
-  const parser = Bowser.getParser(window.navigator.userAgent);
+  const parser = Bowser.getParser(globalThis.navigator.userAgent);
   const osName = parser.getOSName(true);
   return osName === 'ios' || osName === 'macos';
 }
