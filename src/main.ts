@@ -1,6 +1,6 @@
 import { ClickAnalyticsPlugin, type IClickAnalyticsConfiguration } from '@microsoft/applicationinsights-clickanalytics-js';
 import { ApplicationInsights } from '@microsoft/applicationinsights-web';
-import Bowser from 'bowser';
+import { getParser } from 'bowser';
 
 const clickPluginInstance = new ClickAnalyticsPlugin();
 const clickPluginConfig: IClickAnalyticsConfiguration = {
@@ -62,8 +62,8 @@ document.addEventListener('keydown', event => {
 });
 
 function isAppleDevice() {
-  const parser = Bowser.getParser(globalThis.navigator.userAgent);
-  const osName = parser.getOSName(true);
+  const uaParser = getParser(globalThis.navigator.userAgent);
+  const osName = uaParser.getOSName(true);
   return osName === 'ios' || osName === 'macos';
 }
 

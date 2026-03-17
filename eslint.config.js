@@ -1,9 +1,13 @@
+/* eslint-disable import-x/no-named-as-default-member */
+/* eslint-disable import-x/no-named-as-default */
+/* eslint-disable import-x/no-rename-default */
 // @ts-check
 import js from '@eslint/js';
-import eslintParserHTML from '@html-eslint/parser';
+import * as eslintParserHTML from '@html-eslint/parser';
 import stylistic from '@stylistic/eslint-plugin';
 import gitignore from 'eslint-config-flat-gitignore';
 import tailwindcss from 'eslint-plugin-better-tailwindcss';
+import importX from 'eslint-plugin-import-x';
 import packageJson from 'eslint-plugin-package-json';
 import perfectionist from 'eslint-plugin-perfectionist';
 import regexp from 'eslint-plugin-regexp';
@@ -24,6 +28,8 @@ export default defineConfig(gitignore(), {
       commaDangle: 'always-multiline',
     }),
     regexp.configs.recommended,
+    importX.flatConfigs.recommended,
+    importX.flatConfigs.typescript,
   ],
   plugins: {
     perfectionist,
@@ -42,6 +48,9 @@ export default defineConfig(gitignore(), {
     ],
     'perfectionist/sort-named-imports': 'warn',
 
+    'import-x/no-rename-default': 'warn',
+    'import-x/no-useless-path-segments': 'warn',
+
     'unicorn/prefer-query-selector': 'off',
   },
 }, {
@@ -52,6 +61,11 @@ export default defineConfig(gitignore(), {
     tseslint.configs.strictTypeChecked,
     tseslint.configs.stylisticTypeChecked,
   ],
+  settings: {
+    'import-x/resolver': {
+      typescript: true,
+    },
+  },
   languageOptions: {
     parserOptions: {
       projectService: true,
