@@ -5,14 +5,14 @@ Built with Vite, TypeScript, and Tailwind CSS styling.
 
 ## Build and Lint
 
-Uses Yarn 4 as the package manager.
+Uses pnpm as the package manager.
 
 ```sh
-yarn install        # install dependencies
-yarn dev            # local dev server (Vite)
-yarn build          # type-check + production build → dist/
-yarn preview        # preview production build locally
-yarn lint           # ESLint (flat config)
+pnpm install        # install dependencies
+pnpm dev            # local dev server (Vite)
+pnpm build          # type-check + production build → dist/
+pnpm preview        # preview production build locally
+pnpm lint           # ESLint (flat config)
 ```
 
 Vite root is `src/`; built output goes to `dist/`.
@@ -26,7 +26,7 @@ ESLint enforces style. Key rules from the config:
 - HTML files are linted via `@html-eslint/parser`
 - Tailwind class ordering enforced by `eslint-plugin-better-tailwindcss`
 
-Always run `yarn lint` before considering changes complete.
+Always run `pnpm lint` before considering changes complete.
 
 ## Architecture
 
