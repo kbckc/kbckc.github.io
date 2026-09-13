@@ -42,24 +42,29 @@ const KONAMI_CODE = [
   'a',
   'Enter',
 ];
-let cursor = 0;
-let timeout: ReturnType<typeof setTimeout>;
-document.addEventListener('keydown', event => {
-  clearTimeout(timeout);
-  if (event.key == KONAMI_CODE[cursor])
-    cursor++;
-  if (cursor == KONAMI_CODE.length) {
-    const skylightLinkElement = document.getElementById('skylight-link');
-    if (skylightLinkElement)
-      skylightLinkElement.style.display = 'block';
-    cursor = 0;
-  }
-  if (cursor > 0) {
-    timeout = setTimeout(() => {
-      cursor = 0;
-    }, 5000);
-  }
-});
+class KeyDownHandler {
+  #cursor = 0;
+  #timeout?: ReturnType<typeof setTimeout>;
+
+  readonly listener = (event: KeyboardEvent) => {
+    clearTimeout(this.#timeout);
+    if (event.key === KONAMI_CODE[this.#cursor])
+      this.#cursor++;
+    if (this.#cursor === KONAMI_CODE.length) {
+      const skylightLinkElement = document.getElementById('skylight-link');
+      if (skylightLinkElement)
+        skylightLinkElement.style.display = 'block';
+      this.#cursor = 0;
+    }
+    if (this.#cursor > 0) {
+      this.#timeout = setTimeout(() => {
+        this.#cursor = 0;
+      }, 5000);
+    }
+  };
+}
+const keyDownHandler = new KeyDownHandler();
+document.addEventListener('keydown', keyDownHandler.listener);
 
 function isAppleDevice() {
   const uaParser = getParser(globalThis.navigator.userAgent);
