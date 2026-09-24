@@ -80,10 +80,11 @@ if (isAppleDevice()) {
     const linkElements = addressElement.getElementsByTagName('a');
     for (const linkElement of linkElements) {
       const href = linkElement.getAttribute('href');
-      if (href?.includes('https://maps.google.com')) {
-        const newHref = href.replace('https://maps.google.com', 'maps://maps.apple.com');
-        linkElement.setAttribute('href', newHref);
-      }
+      if (!href?.includes('https://maps.google.com'))
+        continue;
+
+      const newHref = href.replace('https://maps.google.com', 'maps://maps.apple.com');
+      linkElement.setAttribute('href', newHref);
     }
   }
 }
